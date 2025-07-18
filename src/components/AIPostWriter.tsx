@@ -13,6 +13,7 @@ import HookSelector from "./HookSelector";
 import { HookCategory, HookTemplate } from "@/lib/hooks";
 import { generatePost, GeneratePostRequest } from "@/lib/gemini";
 import { cn } from "@/lib/utils";
+import React from "react";
 
 export default function AIPostWriter() {
   const [selectedCategory, setSelectedCategory] = useState<HookCategory>();
@@ -237,7 +238,12 @@ export default function AIPostWriter() {
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
                     <pre className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
-                      {generatedPosts.concise}
+                      {generatedPosts.concise.split('\n').map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))}
                     </pre>
                   </div>
                 </CardContent>
@@ -276,7 +282,12 @@ export default function AIPostWriter() {
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
                     <pre className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
-                      {generatedPosts.storyRich}
+                      {generatedPosts.storyRich.split('\n').map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {line}
+                          <br />
+                        </React.Fragment>
+                      ))}
                     </pre>
                   </div>
                 </CardContent>
