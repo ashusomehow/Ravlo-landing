@@ -11,6 +11,7 @@ const Footer = () => (
       <a href="/privacy" className="hover:underline">Privacy Policy</a>
       <a href="/terms" className="hover:underline">Terms</a>
       <a href="/faq" className="hover:underline">FAQ</a>
+      <a href="/buy-me-a-coffee" className="hover:underline text-orange-600 dark:text-orange-400">☕ Buy Me a Coffee</a>
     </div>
   </footer>
 );

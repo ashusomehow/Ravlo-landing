@@ -116,6 +116,20 @@ export default function Navigation() {
               <Sparkles className="w-4 h-4 mr-2" />
               Get Started Free
             </Button>
+            <button
+              onClick={toggleTheme}
+              className="self-center mt-2 p-2 rounded-full bg-muted hover:bg-accent transition-colors duration-300 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary"
+              aria-label="Toggle theme"
+            >
+              <span className="relative block w-6 h-6">
+                <Sun
+                  className={`absolute inset-0 w-6 h-6 transition-all duration-500 ${theme === "dark" ? "opacity-0 scale-75 rotate-45" : "opacity-100 scale-100 rotate-0"}`}
+                />
+                <Moon
+                  className={`absolute inset-0 w-6 h-6 transition-all duration-500 ${theme === "dark" ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-75 -rotate-45"}`}
+                />
+              </span>
+            </button>
           </div>
         </div>
       </div>

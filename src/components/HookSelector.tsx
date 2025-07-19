@@ -142,12 +142,12 @@ export default function HookSelector({
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col md:flex-row md:items-center gap-2 w-full">
               <Select
                 value={selectedTemplate?.id || ""}
                 onValueChange={handleTemplateSelect}
               >
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full md:w-auto">
                   <SelectValue placeholder="Choose a hook template (optional)..." />
                 </SelectTrigger>
                 <SelectContent className="max-h-60">
@@ -156,7 +156,7 @@ export default function HookSelector({
                     .map((template) => (
                       <SelectItem key={template.id} value={template.id}>
                         <div className="flex items-center justify-between w-full">
-                          <span className="truncate max-w-[200px]">
+                          <span className="truncate max-w-[140px] md:max-w-[200px]">
                             {template.template}
                           </span>
                           <div className="flex items-center space-x-2 ml-2">
@@ -178,7 +178,7 @@ export default function HookSelector({
                     ))}
                 </SelectContent>
               </Select>
-              <Button type="button" variant="outline" size="sm" onClick={handleRandomHook} title="Select a random hook" className="flex items-center gap-2">
+              <Button type="button" variant="outline" size="sm" onClick={handleRandomHook} title="Select a random hook" className="flex items-center gap-2 w-full md:w-auto">
                 {(() => {
                   const Icon = randomIcons[randomIconIdx];
                   return <Icon className="w-5 h-5" />;
