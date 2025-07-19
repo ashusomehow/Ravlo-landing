@@ -14,6 +14,12 @@ import { HookCategory, HookTemplate } from "@/lib/hooks";
 import { generatePost, GeneratePostRequest } from "@/lib/gemini";
 import { cn } from "@/lib/utils";
 import React from "react";
+import { Switch } from "@/components/ui/switch";
+
+// Helper function to convert markdown-style bold to HTML
+const formatBoldText = (text: string) => {
+  return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+};
 
 export default function AIPostWriter() {
   const [selectedCategory, setSelectedCategory] = useState<HookCategory>();
@@ -24,6 +30,9 @@ export default function AIPostWriter() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [generatedPosts, setGeneratedPosts] = useState<{ concise: string; storyRich: string } | null>(null);
   const [copiedVersion, setCopiedVersion] = useState<"concise" | "storyRich" | null>(null);
+  const [useEmojis, setUseEmojis] = useState(false);
+  const [addHashtags, setAddHashtags] = useState(false);
+  const [useBullets, setUseBullets] = useState(false);
 
   const handleGenerate = async () => {
     if (!selectedCategory || !selectedTemplate || !topic.trim()) {
@@ -41,6 +50,9 @@ export default function AIPostWriter() {
         hookCategory: selectedCategory,
         hookTemplate: selectedTemplate.template,
         description: description.trim() || undefined,
+        useEmojis,
+        addHashtags,
+        useBullets,
       };
 
       const response = await generatePost(request);
@@ -174,6 +186,47 @@ export default function AIPostWriter() {
                 />
               </div>
 
+              {/* Post Formatting Options */}
+              <div className="space-y-3">
+                <Label className="text-sm font-medium">Post Formatting</Label>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Switch
+                        id="useEmojis"
+                        checked={useEmojis}
+                        onCheckedChange={setUseEmojis}
+                      />
+                      <Label htmlFor="useEmojis" className="text-sm">Use Emojis</Label>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Modern posts typically avoid emojis</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Switch
+                        id="addHashtags"
+                        checked={addHashtags}
+                        onCheckedChange={setAddHashtags}
+                      />
+                      <Label htmlFor="addHashtags" className="text-sm">Add Hashtags at the end</Label>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <Switch
+                        id="useBullets"
+                        checked={useBullets}
+                        onCheckedChange={setUseBullets}
+                      />
+                      <Label htmlFor="useBullets" className="text-sm">Use Bullets with '→'</Label>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Modern posts typically use this</span>
+                  </div>
+                </div>
+              </div>
+
               <Button
                 onClick={handleGenerate}
                 disabled={!isFormValid || isGenerating}
@@ -203,7 +256,52 @@ export default function AIPostWriter() {
 
         {/* Output Section */}
         <div className="space-y-6">
-          {generatedPosts ? (
+          {isGenerating ? (
+            <>
+              {/* Loading Skeletons */}
+              <Card className="border-2 border-brand-green/30 bg-gradient-to-br from-brand-green/10 via-brand-green/5 to-transparent">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="skeleton w-20 h-6 rounded-full"></div>
+                      <div className="skeleton w-24 h-4 rounded"></div>
+                    </div>
+                    <div className="skeleton w-16 h-8 rounded"></div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="skeleton h-4 w-full rounded"></div>
+                    <div className="skeleton h-4 w-3/4 rounded"></div>
+                    <div className="skeleton h-4 w-5/6 rounded"></div>
+                    <div className="skeleton h-4 w-2/3 rounded"></div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-brand-purple/30 bg-gradient-to-br from-brand-purple/10 via-brand-purple/5 to-transparent">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="skeleton w-24 h-6 rounded-full"></div>
+                      <div className="skeleton w-24 h-4 rounded"></div>
+                    </div>
+                    <div className="skeleton w-16 h-8 rounded"></div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="skeleton h-4 w-full rounded"></div>
+                    <div className="skeleton h-4 w-5/6 rounded"></div>
+                    <div className="skeleton h-4 w-full rounded"></div>
+                    <div className="skeleton h-4 w-4/5 rounded"></div>
+                    <div className="skeleton h-4 w-3/4 rounded"></div>
+                    <div className="skeleton h-4 w-5/6 rounded"></div>
+                  </div>
+                </CardContent>
+              </Card>
+            </>
+          ) : generatedPosts ? (
             <>
               {/* Concise Version */}
               <Card className="border-2 border-brand-green/30 bg-gradient-to-br from-brand-green/10 via-brand-green/5 to-transparent hover:border-brand-green/40 transition-all duration-300 hover:shadow-lg animate-scale-in">
@@ -237,14 +335,13 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <pre className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
-                      {generatedPosts.concise.split('\n').map((line, idx) => (
-                        <React.Fragment key={idx}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))}
-                    </pre>
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
+                      <div dangerouslySetInnerHTML={{
+                        __html: formatBoldText(generatedPosts.concise.split('\n').map((line, idx) => 
+                          `${line}<br />`
+                        ).join(''))
+                      }} />
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -281,14 +378,13 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <pre className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
-                      {generatedPosts.storyRich.split('\n').map((line, idx) => (
-                        <React.Fragment key={idx}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))}
-                    </pre>
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
+                      <div dangerouslySetInnerHTML={{
+                        __html: formatBoldText(generatedPosts.storyRich.split('\n').map((line, idx) => 
+                          `${line}<br />`
+                        ).join(''))
+                      }} />
+                    </div>
                   </div>
                 </CardContent>
               </Card>

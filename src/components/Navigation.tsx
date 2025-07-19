@@ -3,11 +3,17 @@ import { Sparkles, BarChart3, PenTool, MessageSquare, Menu, X, Sun, Moon } from 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import RavloLogo from "@/assets/RavloLogo.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem('ravlo-theme');
+      if (savedTheme) {
+        return savedTheme;
+      }
       return document.documentElement.classList.contains("dark") ? "dark" : "light";
     }
     return "light";
@@ -19,10 +25,16 @@ export default function Navigation() {
     } else {
       document.documentElement.classList.remove("dark");
     }
+    // Save theme to localStorage
+    localStorage.setItem('ravlo-theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
+  const handleGetStarted = () => {
+    navigate('/?view=writer');
   };
 
   return (
@@ -46,7 +58,12 @@ export default function Navigation() {
 
           {/* Desktop CTA and Theme Toggle */}
           <div className="hidden md:flex items-center space-x-6">
-            <Button variant="hero" size="sm" className="shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 text-base font-semibold">
+            <Button
+              variant="hero"
+              size="sm"
+              className="shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-2 text-base font-semibold"
+              onClick={handleGetStarted}
+            >
               <Sparkles className="w-4 h-4 mr-2" />
               Get Started Free
             </Button>
@@ -90,7 +107,12 @@ export default function Navigation() {
           )}
         >
           <div className="flex flex-col space-y-4 pt-4">
-            <Button variant="hero" size="sm" className="w-full mt-2 px-6 py-2 text-base font-semibold">
+            <Button
+              variant="hero"
+              size="sm"
+              className="w-full mt-2 px-6 py-2 text-base font-semibold"
+              onClick={handleGetStarted}
+            >
               <Sparkles className="w-4 h-4 mr-2" />
               Get Started Free
             </Button>

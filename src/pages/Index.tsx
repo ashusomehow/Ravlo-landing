@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,14 +7,28 @@ import Navigation from "@/components/Navigation";
 import AIPostWriter from "@/components/AIPostWriter";
 import heroImage from "@/assets/hero-image.jpg";
 import { getCategoryStats } from "@/lib/hooks";
+import { useSearchParams } from "react-router-dom";
 
 const Index = () => {
-  const [currentView, setCurrentView] = useState<"landing" | "writer">("landing");
+  const [searchParams] = useSearchParams();
+  const [currentView, setCurrentView] = useState<"landing" | "writer">(() => {
+    return searchParams.get('view') === 'writer' ? 'writer' : 'landing';
+  });
   const hookStats = getCategoryStats();
+
+  // Update view when URL parameters change
+  useEffect(() => {
+    const view = searchParams.get('view');
+    if (view === 'writer') {
+      setCurrentView('writer');
+    } else {
+      setCurrentView('landing');
+    }
+  }, [searchParams]);
 
   if (currentView === "writer") {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background animate-fade-in">
         <Navigation />
         <AIPostWriter />
       </div>
@@ -22,8 +36,16 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background animate-fade-in">
       <Navigation />
+      
+      {/* Floating Geometric Elements */}
+      <div className="floating-shapes">
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
+      </div>
       
       {/* Hero Section */}
       <section className="relative py-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -60,7 +82,7 @@ const Index = () => {
                   variant="hero" 
                   size="xl"
                   onClick={() => setCurrentView("writer")}
-                  className="group"
+                  className="group btn-premium"
                 >
                   Start Growing with Ravlo
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -255,7 +277,7 @@ const Index = () => {
               variant="hero" 
               size="xl"
               onClick={() => setCurrentView("writer")}
-              className="group"
+              className="group btn-premium"
             >
               Start Creating Posts Now
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

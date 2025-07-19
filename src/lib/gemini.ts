@@ -8,6 +8,9 @@ export interface GeneratePostRequest {
   hookCategory: 'curiosity' | 'story' | 'provoke';
   hookTemplate: string;
   description?: string;
+  useEmojis?: boolean;
+  addHashtags?: boolean;
+  useBullets?: boolean;
 }
 
 export interface GeneratePostResponse {
@@ -56,6 +59,24 @@ export async function callGemini(prompt: string): Promise<string> {
 }
 
 export async function generatePost(request: GeneratePostRequest): Promise<GeneratePostResponse> {
+  const formattingInstructions = [];
+  
+  if (request.useEmojis) {
+    formattingInstructions.push("- Include relevant emojis (2-4 per post)");
+  } else {
+    formattingInstructions.push("- NO emojis (modern LinkedIn posts typically avoid emojis for a more professional look)");
+  }
+  
+  if (request.addHashtags) {
+    formattingInstructions.push("- Add 3-5 relevant hashtags at the end of each post");
+  }
+  
+  if (request.useBullets) {
+    formattingInstructions.push("- CRITICAL: Use ONLY '→' symbol for bullet points (never use '•' or '-')");
+  } else {
+    formattingInstructions.push("- Use traditional bullet points (•) when listing items");
+  }
+
   const prompt = `You are a LinkedIn content expert. Create highly engaging, properly formatted LinkedIn posts using the following specifications:
 
 Hook Template: "${request.hookTemplate}"
@@ -63,11 +84,10 @@ Topic: ${request.topic}
 Tone: ${request.tone}
 ${request.description ? `Additional Context: ${request.description}` : ''}
 
-CRITICAL FORMATTING REQUIREMENTS:
+FORMATTING REQUIREMENTS:
 - Use line breaks (\n) to separate paragraphs
 - Add proper spacing between sections
-- Include relevant emojis (2-4 per post)
-- Use bullet points (•) when listing items
+${formattingInstructions.join('\n')}
 - Add strategic line breaks for readability
 
 Generate exactly 2 versions of LinkedIn posts:
@@ -75,34 +95,40 @@ Generate exactly 2 versions of LinkedIn posts:
 1. CONCISE VERSION (≤150 words):
 - Start with the provided hook template
 - Keep it punchy and direct with proper line breaks
-- Include 2-3 relevant emojis
+${request.useEmojis ? '- Include 2-3 relevant emojis' : '- NO emojis for modern professional look'}
 - End with a clear call-to-action or question
 - Use 2-3 paragraphs maximum
+${request.addHashtags ? '- Add 3-5 relevant hashtags at the end' : ''}
 
 2. STORY-RICH VERSION (≤300 words):
 - Begin with the hook template
 - Develop with personal anecdotes or detailed examples
 - Include multiple line breaks for easy reading
-- Use emojis strategically (3-4 emojis)
+${request.useEmojis ? '- Use emojis strategically (3-4 emojis)' : '- NO emojis for modern professional look'}
 - Create 4-5 short paragraphs
 - End with an engaging question or call-to-action
+${request.addHashtags ? '- Add 3-5 relevant hashtags at the end' : ''}
 
 FORMAT EXAMPLE:
-"Hook line here... 🚀
+"Hook line here... ${request.useEmojis ? '🚀' : ''}
 
 Main content paragraph with insights.
 
 Key points:
-• Point 1
-• Point 2  
-• Point 3
+${request.useBullets ? '→ Point 1' : '• Point 1'}
+${request.useBullets ? '→ Point 2' : '• Point 2'}  
+${request.useBullets ? '→ Point 3' : '• Point 3'}
 
-Final thought with engagement question? 💭"
+Final thought with engagement question? ${request.useEmojis ? '💭' : ''}
+
+${request.addHashtags ? '#LinkedInTips #ProfessionalGrowth #ContentCreation' : ''}"
+
+${request.useBullets ? 'IMPORTANT: When creating bullet points, ALWAYS use the "→" symbol, never use "•" or "-".' : ''}
 
 Return ONLY in this exact JSON format:
 {"concise": "your properly formatted concise post with \\n line breaks", "storyRich": "your properly formatted story-rich post with \\n line breaks"}
 
-Make the content sound natural, human-like, conversational, and optimized for maximum LinkedIn engagement.`;
+Make the content sound natural, human-like, conversational, and optimized for maximum LinkedIn engagement. ${request.useBullets ? 'Remember to use → for all bullet points.' : ''}`;
 
   try {
     const response = await callGemini(prompt);
