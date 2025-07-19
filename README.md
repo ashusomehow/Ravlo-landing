@@ -2,8 +2,6 @@
 
 Ravlo is a free, AI-powered tool designed to help you master LinkedIn growth with proven hook templates, content generation, and analytics. This is an MVP (Minimum Viable Product) and a side project by [Ashutosh Rai](https://www.linkedin.com/in/ashusomehow/). This tool will always be free.
 
-🌐 **Visit:** [https://ravlo-landing.vercel.app/](https://ravlo-landing.vercel.app/)
-
 ## Features
 
 - **AI-Powered Hook Templates:**
