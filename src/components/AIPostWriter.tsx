@@ -343,6 +343,23 @@ export default function AIPostWriter() {
                       }} />
                     </div>
                   </div>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="mt-4 w-full transition-all duration-300 hover:scale-105"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setTimeout(() => {
+                        // Use useNavigate if available, otherwise fallback
+                        if (typeof window !== 'undefined') {
+                          window.location.href = '/post-formatter';
+                          localStorage.setItem('ravlo-formatter-preload', generatedPosts.concise);
+                        }
+                      }, 200);
+                    }}
+                  >
+                    ✍️ Copy to Formatter
+                  </Button>
                 </CardContent>
               </Card>
 
@@ -386,6 +403,22 @@ export default function AIPostWriter() {
                       }} />
                     </div>
                   </div>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="mt-4 w-full transition-all duration-300 hover:scale-105"
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setTimeout(() => {
+                        if (typeof window !== 'undefined') {
+                          window.location.href = '/post-formatter';
+                          localStorage.setItem('ravlo-formatter-preload', generatedPosts.storyRich);
+                        }
+                      }, 200);
+                    }}
+                  >
+                    ✍️ Copy to Formatter
+                  </Button>
                 </CardContent>
               </Card>
 

@@ -58,6 +58,14 @@ export default function Navigation() {
 
           {/* Desktop CTA and Theme Toggle */}
           <div className="hidden md:flex items-center space-x-6">
+            <a href="/post-formatter" className="flex items-center gap-2 text-muted-foreground hover:text-primary font-medium transition-colors">
+              <PenTool className="w-4 h-4" />
+              Post Formatter
+            </a>
+            <a href="/saved-drafts" className="flex items-center gap-2 text-muted-foreground hover:text-primary font-medium transition-colors">
+              <BarChart3 className="w-4 h-4" />
+              Saved Drafts
+            </a>
             <Button
               variant="hero"
               size="sm"
@@ -107,6 +115,14 @@ export default function Navigation() {
           )}
         >
           <div className="flex flex-col space-y-4 pt-4">
+            <a href="/post-formatter" className="flex items-center gap-2 text-muted-foreground hover:text-primary font-medium transition-colors">
+              <PenTool className="w-4 h-4" />
+              Post Formatter
+            </a>
+            <a href="/saved-drafts" className="flex items-center gap-2 text-muted-foreground hover:text-primary font-medium transition-colors">
+              <BarChart3 className="w-4 h-4" />
+              Saved Drafts
+            </a>
             <Button
               variant="hero"
               size="sm"

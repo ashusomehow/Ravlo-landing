@@ -10,6 +10,8 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import FAQ from "./pages/FAQ";
 import BuyMeACoffee from "./pages/BuyMeACoffee";
+import PostFormatter from "./pages/PostFormatter";
+import SavedDrafts from "./pages/SavedDrafts";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/terms" element={<Terms />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/buy-me-a-coffee" element={<BuyMeACoffee />} />
+          <Route path="/post-formatter" element={<PostFormatter />} />
+          <Route path="/saved-drafts" element={<SavedDrafts />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
