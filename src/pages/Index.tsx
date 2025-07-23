@@ -209,51 +209,44 @@ const Index = () => {
 
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold">
-              Everything You Need to
-              <span className="bg-gradient-primary bg-clip-text text-transparent"> Master LinkedIn</span>
+              Why <span className="bg-gradient-primary bg-clip-text text-transparent">Ravlo?</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From AI-powered content creation to advanced analytics, 
-              Ravlo provides all the tools you need to grow your LinkedIn presence.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Ravlo isn’t just another writing tool — it’s your daily content partner.<br />Here’s how it makes your life easier:
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: BarChart3,
-                title: "Performance Analytics",
-                description: "Track engagement rates, optimal posting times, and hook performance to maximize your reach.",
-                color: "from-blue-500 to-cyan-500"
-              },
-              {
-                icon: TrendingUp,
-                title: "Engagement Optimization",
-                description: "AI-powered recommendations to improve your content performance and grow your audience.",
-                color: "from-green-500 to-emerald-500"
-              },
-              {
-                icon: Users,
-                title: "Audience Insights",
-                description: "Understand your audience better with detailed analytics and demographic insights.",
-                color: "from-purple-500 to-violet-500"
-              }
-            ].map((feature, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 bg-gradient-card">
-                <CardHeader>
-                  <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <CardTitle>{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{feature.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+              <span className="text-3xl">⚡</span>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Generate Posts in Seconds</h3>
+                <p className="text-muted-foreground">Go from idea to scroll-stopping post instantly, using proven high-engagement formats.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+              <span className="text-3xl">📥</span>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Save to Drafts & Reuse</h3>
+                <p className="text-muted-foreground">Plan ahead. Save your posts as drafts and refine or reuse them whenever you want.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+              <span className="text-3xl">📅</span>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Stay Consistent, Effortlessly</h3>
+                <p className="text-muted-foreground">Build your personal brand by showing up daily — without the daily grind.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+              <span className="text-3xl">📈</span>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Boost Productivity</h3>
+                <p className="text-muted-foreground">No more blank screens. Ravlo helps you create faster, smarter, and more often.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
