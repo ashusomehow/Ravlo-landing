@@ -42,33 +42,51 @@ export default function HookSelector({
   className,
 }: HookSelectorProps) {
   const [hoveredCategory, setHoveredCategory] = useState<HookCategory | null>(null);
-  const stats = getCategoryStats();
+  const stats = getCategoryStats() || { curiosity: 0, story: 0, provoke: 0, total: 0 };
   const [randomIconIdx, setRandomIconIdx] = useState(Math.floor(Math.random() * randomIcons.length));
 
   const handleCategorySelect = (category: HookCategory) => {
-    onCategoryChange(category);
-    // Do not auto-select the first template in the category
-    onTemplateChange(undefined);
+    try {
+      onCategoryChange(category);
+      // Do not auto-select the first template in the category
+      onTemplateChange(undefined);
+    } catch (error) {
+      console.error('Error selecting category:', error);
+    }
   };
 
   const handleTemplateSelect = (templateId: string) => {
-    if (selectedCategory) {
-      const templates = getHooksByCategory(selectedCategory);
-      const template = templates.find(t => t.id === templateId);
-      if (template) {
-        onTemplateChange(template);
+    try {
+      if (templateId === "no-hook") {
+        // "No Hook" selected
+        onTemplateChange(undefined);
+        return;
       }
+      
+      if (selectedCategory) {
+        const templates = getHooksByCategory(selectedCategory);
+        const template = templates.find(t => t.id === templateId);
+        if (template) {
+          onTemplateChange(template);
+        }
+      }
+    } catch (error) {
+      console.error('Error selecting template:', error);
     }
   };
 
   const handleRandomHook = () => {
-    if (selectedCategory) {
-      const hooks = getHooksByCategory(selectedCategory);
-      if (hooks.length > 0) {
-        const randomIdx = Math.floor(Math.random() * hooks.length);
-        onTemplateChange(hooks[randomIdx]);
-        setRandomIconIdx(Math.floor(Math.random() * randomIcons.length));
+    try {
+      if (selectedCategory) {
+        const hooks = getHooksByCategory(selectedCategory);
+        if (hooks.length > 0) {
+          const randomIdx = Math.floor(Math.random() * hooks.length);
+          onTemplateChange(hooks[randomIdx]);
+          setRandomIconIdx(Math.floor(Math.random() * randomIcons.length));
+        }
       }
+    } catch (error) {
+      console.error('Error selecting random hook:', error);
     }
   };
 
@@ -143,40 +161,43 @@ export default function HookSelector({
             </div>
 
             <div className="flex flex-col md:flex-row md:items-center gap-2 w-full">
-              <Select
-                value={selectedTemplate?.id || ""}
-                onValueChange={handleTemplateSelect}
-              >
+                             <Select
+                 value={selectedTemplate?.id || "no-hook"}
+                 onValueChange={handleTemplateSelect}
+               >
                 <SelectTrigger className="w-full md:w-auto">
-                  <SelectValue placeholder="Choose a hook template (optional)..." />
+                  <SelectValue placeholder="Choose a hook template..." />
                 </SelectTrigger>
-                <SelectContent className="max-h-60">
-                  {getHooksByCategory(selectedCategory)
-                    .sort((a, b) => (b.engagementScore || 0) - (a.engagementScore || 0))
-                    .map((template) => (
-                      <SelectItem key={template.id} value={template.id}>
-                        <div className="flex items-center justify-between w-full">
-                          <span className="truncate max-w-[140px] md:max-w-[200px]">
-                            {template.template}
-                          </span>
-                          <div className="flex items-center space-x-2 ml-2">
-                            <div className="flex items-center space-x-1">
-                              <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                              <span className="text-xs text-muted-foreground">
-                                {template.engagementScore?.toFixed(1)}
-                              </span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <Users className="w-3 h-3 text-muted-foreground" />
-                              <span className="text-xs text-muted-foreground">
-                                {template.usageCount}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </SelectItem>
-                    ))}
-                </SelectContent>
+                                 <SelectContent className="max-h-60">
+                   <SelectItem key="no-hook" value="no-hook">
+                     <span className="italic text-muted-foreground">No Hook</span>
+                   </SelectItem>
+                   {getHooksByCategory(selectedCategory)
+                     .sort((a, b) => (b.engagementScore || 0) - (a.engagementScore || 0))
+                     .map((template) => (
+                       <SelectItem key={template.id} value={template.id}>
+                         <div className="flex items-center justify-between w-full">
+                           <span className="truncate max-w-[140px] md:max-w-[200px]">
+                             {template.template}
+                           </span>
+                           <div className="flex items-center space-x-2 ml-2">
+                             <div className="flex items-center space-x-1">
+                               <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                               <span className="text-xs text-muted-foreground">
+                                 {template.engagementScore?.toFixed(1)}
+                               </span>
+                             </div>
+                             <div className="flex items-center space-x-1">
+                               <Users className="w-3 h-3 text-muted-foreground" />
+                               <span className="text-xs text-muted-foreground">
+                                 {template.usageCount}
+                               </span>
+                             </div>
+                           </div>
+                         </div>
+                       </SelectItem>
+                     ))}
+                 </SelectContent>
               </Select>
               <Button type="button" variant="outline" size="sm" onClick={handleRandomHook} title="Select a random hook" className="flex items-center gap-2 w-full md:w-auto">
                 {(() => {
@@ -185,6 +206,9 @@ export default function HookSelector({
                 })()}
                 <span>Random Hook</span>
               </Button>
+            </div>
+            <div className="mt-1 text-xs text-muted-foreground">
+              Hooks are <span className="font-semibold text-primary">recommended</span> for higher engagement, but you can proceed without one.
             </div>
 
             {/* Template Preview */}

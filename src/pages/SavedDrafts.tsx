@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import { Copy } from "lucide-react";
 
 interface Draft {
   id: string;
@@ -41,6 +42,17 @@ const SavedDrafts: React.FC = () => {
     setDrafts(updated);
   };
 
+  const handleCopy = (content: string) => {
+    // Convert <br> and <div> to newlines for plain text copy
+    let text = content.replace(/<br\s*\/?>(\s*)/gi, '\n').replace(/<div>/gi, '\n').replace(/<[^>]+>/g, '');
+    navigator.clipboard.writeText(text).then(() => {
+      // Use a toast or similar feedback
+      if (typeof window !== 'undefined' && window.toast) {
+        window.toast.success("Copied!");
+      }
+    });
+  };
+
   return (
     <>
       <Navigation />
@@ -59,6 +71,9 @@ const SavedDrafts: React.FC = () => {
                 <CardContent>
                   <div className="line-clamp-4 text-sm mb-4" dangerouslySetInnerHTML={{ __html: draft.content }} />
                   <div className="flex gap-2">
+                    <Button size="icon" variant="outline" onClick={() => handleCopy(draft.content)} className="transition-all hover:scale-110">
+                      <Copy className="w-4 h-4" />
+                    </Button>
                     <Button size="sm" variant="secondary" onClick={() => handleOpen(draft)} className="flex-1">Edit</Button>
                     <Button size="sm" variant="destructive" onClick={() => handleDelete(draft.id)} className="flex-1">Delete</Button>
                   </div>

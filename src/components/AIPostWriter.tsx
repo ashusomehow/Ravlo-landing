@@ -35,8 +35,8 @@ export default function AIPostWriter() {
   const [useBullets, setUseBullets] = useState(false);
 
   const handleGenerate = async () => {
-    if (!selectedCategory || !selectedTemplate || !topic.trim()) {
-      toast.error("Please select a hook category, template, and enter a topic");
+    if (!selectedCategory || !topic.trim()) {
+      toast.error("Please select a hook category and enter a topic");
       return;
     }
 
@@ -48,7 +48,7 @@ export default function AIPostWriter() {
         topic: topic.trim(),
         tone,
         hookCategory: selectedCategory,
-        hookTemplate: selectedTemplate.template,
+        hookTemplate: selectedTemplate?.template || "Start with an engaging opening...",
         description: description.trim() || undefined,
         useEmojis,
         addHashtags,
@@ -77,7 +77,7 @@ export default function AIPostWriter() {
     }
   };
 
-  const isFormValid = selectedCategory && selectedTemplate && topic.trim();
+  const isFormValid = selectedCategory && topic.trim();
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
