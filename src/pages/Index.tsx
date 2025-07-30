@@ -47,62 +47,62 @@ const Index = () => {
         <div className="floating-shape"></div>
       </div>
       
-      {/* Hero Section */}
-      <section className="relative py-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero opacity-10" />
+             {/* Hero Section */}
+       <section className="relative py-8 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: 'linear-gradient(90deg, #0A66C2 0%, #004182 100%)' }}>
+         <div className="absolute inset-0 bg-gradient-hero opacity-10" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="secondary" className="bg-linkedin-primary-blue/10 text-linkedin-primary-blue">
-                  🚀 Master LinkedIn Growth with AI
-                </Badge>
-                                 <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-relaxed">
-                  <span className="text-linkedin-primary-blue">
-                    Ravlo
-                  </span>
-                  <br />
-                  <span className="text-linkedin-main">
-                    Grow Your LinkedIn
-                  </span>
-                  <br />
-                  <span className="text-linkedin-main">
-                    with AI-Powered Hooks
-                  </span>
-                </h1>
-                                 <p className="text-base text-linkedin-muted max-w-lg leading-relaxed">
+                                 <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                   🚀 Master LinkedIn Growth with AI
+                 </Badge>
+                 <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-relaxed text-white">
+                   <span className="text-white">
+                     Ravlo
+                   </span>
+                   <br />
+                   <span className="text-white">
+                     Grow Your LinkedIn
+                   </span>
+                   <br />
+                   <span className="text-white">
+                     with AI-Powered Hooks
+                   </span>
+                 </h1>
+                 <p className="text-base text-white/90 max-w-lg leading-relaxed">
                   Master LinkedIn growth with {hookStats.total} proven hook templates, 
                   AI-powered content creation, and advanced analytics to optimize your engagement.
                 </p>
               </div>
 
-              {/* Button Section - Left aligned with margin */}
-              <div className="mt-8 mb-6">
-                <Button 
-                  variant="linkedin" 
-                  size="xl"
-                  onClick={() => setCurrentView("writer")}
-                  className="group btn-premium"
-                >
-                  Start Growing with Ravlo
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
+                             {/* Button Section - Left aligned with margin */}
+               <div className="mt-8 mb-6">
+                 <Button 
+                   variant="default" 
+                   size="xl"
+                   onClick={() => setCurrentView("writer")}
+                   className="group btn-premium bg-white text-[#0A66C2] hover:bg-gray-100 hover:text-[#004182]"
+                 >
+                   Start Growing with Ravlo
+                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                 </Button>
+               </div>
 
-              <div className="flex items-center space-x-8">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-linkedin-primary-blue">{hookStats.total}</div>
-                  <div className="text-sm text-linkedin-muted">Hook Templates</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-linkedin-primary-blue">10k+</div>
-                  <div className="text-sm text-linkedin-muted">Posts Created</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-linkedin-primary-blue">3x</div>
-                  <div className="text-sm text-linkedin-muted">Avg. Engagement</div>
-                </div>
-              </div>
+                             <div className="flex items-center space-x-8">
+                 <div className="text-center">
+                   <div className="text-2xl font-bold text-white">{hookStats.total}</div>
+                   <div className="text-sm text-white/80">Hook Templates</div>
+                 </div>
+                 <div className="text-center">
+                   <div className="text-2xl font-bold text-white">10k+</div>
+                   <div className="text-sm text-white/80">Posts Created</div>
+                 </div>
+                 <div className="text-center">
+                   <div className="text-2xl font-bold text-white">3x</div>
+                   <div className="text-sm text-white/80">Avg. Engagement</div>
+                 </div>
+               </div>
             </div>
 
             <div className="relative">
