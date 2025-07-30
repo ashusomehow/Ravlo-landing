@@ -215,7 +215,7 @@ const PostFormatter: React.FC = () => {
     <>
       <Navigation />
       <div className="max-w-4xl mx-auto py-12 px-4 animate-fade-in">
-        <Card className="bg-gradient-to-br from-blue-50/60 via-white/80 to-blue-100/60 dark:from-slate-900/60 dark:via-slate-800/80 dark:to-blue-900/60 shadow-2xl border-2 border-primary/10 backdrop-blur-xl">
+        <Card>
           <CardHeader>
             <CardTitle className="text-2xl font-bold flex items-center gap-2">
               <span role="img" aria-label="edit">📝</span> Post Formatter

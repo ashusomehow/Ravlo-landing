@@ -111,7 +111,7 @@ export default function AIPostWriter() {
         {/* Input Section */}
         <div className="space-y-6">
           {/* Hook Selection */}
-          <Card className="border-2 border-primary/10 bg-gradient-to-br from-primary/5 via-transparent to-brand-purple/5 hover:border-primary/20 transition-all duration-300 hover:shadow-lg">
+          <Card className="mb-6">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -137,7 +137,7 @@ export default function AIPostWriter() {
           </Card>
 
           {/* Content Configuration */}
-          <Card className="border-2 border-brand-purple/10 bg-gradient-to-br from-brand-purple/5 via-transparent to-primary/5 hover:border-brand-purple/20 transition-all duration-300 hover:shadow-lg">
+          <Card className="mb-6">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-primary rounded-lg flex items-center justify-center">
@@ -304,7 +304,7 @@ export default function AIPostWriter() {
           ) : generatedPosts ? (
             <>
               {/* Concise Version */}
-              <Card className="border-2 border-brand-green/30 bg-gradient-to-br from-brand-green/10 via-brand-green/5 to-transparent hover:border-brand-green/40 transition-all duration-300 hover:shadow-lg animate-scale-in">
+              <Card className="mb-6">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center space-x-3">
@@ -335,7 +335,7 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-[#F3F2EF] p-4 rounded-md border border-[#E0DFDC]">
                       <div dangerouslySetInnerHTML={{
                         __html: formatBoldText(generatedPosts.concise.split('\n').map((line, idx) => 
                           `${line}<br />`
@@ -364,7 +364,7 @@ export default function AIPostWriter() {
               </Card>
 
               {/* Story-Rich Version */}
-              <Card className="border-2 border-brand-purple/30 bg-gradient-to-br from-brand-purple/10 via-brand-purple/5 to-transparent hover:border-brand-purple/40 transition-all duration-300 hover:shadow-lg animate-scale-in">
+              <Card className="mb-6">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center space-x-3">
@@ -395,7 +395,7 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-[#F3F2EF] p-4 rounded-md border border-[#E0DFDC]">
                       <div dangerouslySetInnerHTML={{
                         __html: formatBoldText(generatedPosts.storyRich.split('\n').map((line, idx) => 
                           `${line}<br />`

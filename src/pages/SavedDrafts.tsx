@@ -63,7 +63,7 @@ const SavedDrafts: React.FC = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {drafts.map(draft => (
-              <Card key={draft.id} className="bg-gradient-to-br from-blue-50/60 via-white/80 to-blue-100/60 dark:from-slate-900/60 dark:via-slate-800/80 dark:to-blue-900/60 shadow-xl border-2 border-primary/10 backdrop-blur-xl transition-all hover:scale-105">
+                             <Card key={draft.id} className="mb-6">
                 <CardHeader>
                   <CardTitle className="truncate text-lg font-semibold">{draft.title || "Untitled Draft"}</CardTitle>
                   <div className="text-xs text-muted-foreground mt-1">{new Date(draft.timestamp).toLocaleString()}</div>

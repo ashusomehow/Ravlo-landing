@@ -132,7 +132,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-card">
+            <Card className="mb-6">
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Lightbulb className="w-8 h-8 text-white" />
@@ -156,7 +156,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-card">
+            <Card className="mb-6">
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <BookOpen className="w-8 h-8 text-white" />
@@ -180,7 +180,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-card">
+            <Card className="mb-6">
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Zap className="w-8 h-8 text-white" />
@@ -219,28 +219,28 @@ const Index = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">⚡</span>
               <div>
                 <h3 className="text-lg font-semibold mb-1">Generate Posts in Seconds</h3>
                 <p className="text-muted-foreground">Go from idea to scroll-stopping post instantly, using proven high-engagement formats.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">📥</span>
               <div>
                 <h3 className="text-lg font-semibold mb-1">Save to Drafts & Reuse</h3>
                 <p className="text-muted-foreground">Plan ahead. Save your posts as drafts and refine or reuse them whenever you want.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">📅</span>
               <div>
                 <h3 className="text-lg font-semibold mb-1">Stay Consistent, Effortlessly</h3>
                 <p className="text-muted-foreground">Build your personal brand by showing up daily — without the daily grind.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
+            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">📈</span>
               <div>
                 <h3 className="text-lg font-semibold mb-1">Boost Productivity</h3>
