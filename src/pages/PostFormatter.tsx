@@ -294,12 +294,12 @@ const PostFormatter: React.FC = () => {
              />
             
             <div className="flex gap-2 mb-2">
-              <Button onClick={handleCopy} variant="outline" size="sm" className="flex items-center gap-2">
+              <Button onClick={handleCopy} variant="linkedin" size="sm" className="flex items-center gap-2">
                 <Copy className="w-4 h-4" /> Copy
               </Button>
             </div>
             
-            <Button onClick={handleSave} className="w-full mt-2" variant="hero">
+            <Button onClick={handleSave} className="w-full mt-2" variant="linkedin">
               {editingId ? "Update Draft" : "Save Draft"}
             </Button>
           </CardContent>

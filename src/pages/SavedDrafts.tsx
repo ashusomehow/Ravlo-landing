@@ -74,7 +74,7 @@ const SavedDrafts: React.FC = () => {
                     <Button size="icon" variant="outline" onClick={() => handleCopy(draft.content)} className="transition-all hover:scale-110">
                       <Copy className="w-4 h-4" />
                     </Button>
-                    <Button size="sm" variant="secondary" onClick={() => handleOpen(draft)} className="flex-1">Edit</Button>
+                    <Button size="sm" variant="linkedin" onClick={() => handleOpen(draft)} className="flex-1">Edit</Button>
                     <Button size="sm" variant="destructive" onClick={() => handleDelete(draft.id)} className="flex-1">Delete</Button>
                   </div>
                 </CardContent>

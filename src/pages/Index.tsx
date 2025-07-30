@@ -267,7 +267,7 @@ const Index = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="hero" 
+              variant="linkedin" 
               size="xl"
               onClick={() => setCurrentView("writer")}
               className="group btn-premium"

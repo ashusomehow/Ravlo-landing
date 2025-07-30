@@ -231,7 +231,7 @@ export default function AIPostWriter() {
                 onClick={handleGenerate}
                 disabled={!isFormValid || isGenerating}
                 className="w-full relative overflow-hidden group"
-                variant="hero"
+                variant="linkedin"
                 size="lg"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary via-brand-purple to-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
@@ -344,7 +344,7 @@ export default function AIPostWriter() {
                     </div>
                   </div>
                   <Button
-                    variant="secondary"
+                    variant="linkedin"
                     size="sm"
                     className="mt-4 w-full transition-all duration-300 hover:scale-105"
                     onClick={() => {
@@ -404,7 +404,7 @@ export default function AIPostWriter() {
                     </div>
                   </div>
                   <Button
-                    variant="secondary"
+                    variant="linkedin"
                     size="sm"
                     className="mt-4 w-full transition-all duration-300 hover:scale-105"
                     onClick={() => {
@@ -425,7 +425,7 @@ export default function AIPostWriter() {
               {/* Action Buttons */}
               <div className="flex space-x-4">
                 <Button 
-                  variant="secondary" 
+                  variant="linkedin" 
                   onClick={handleGenerate}
                   disabled={isGenerating}
                   className="flex-1 relative overflow-hidden group hover:scale-105 transition-all duration-300"

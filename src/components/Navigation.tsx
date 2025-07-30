@@ -115,16 +115,16 @@ export default function Navigation() {
           )}
         >
           <div className="flex flex-col space-y-4 pt-4">
-            <a href="/post-formatter" className="flex items-center gap-2 text-muted-foreground hover:text-primary font-medium transition-colors">
+            <a href="/post-formatter" className="flex items-center gap-2 text-linkedin-muted hover:text-linkedin-primary-blue font-medium transition-colors">
               <PenTool className="w-4 h-4" />
               Post Formatter
             </a>
-            <a href="/saved-drafts" className="flex items-center gap-2 text-muted-foreground hover:text-primary font-medium transition-colors">
+            <a href="/saved-drafts" className="flex items-center gap-2 text-linkedin-muted hover:text-linkedin-primary-blue font-medium transition-colors">
               <BarChart3 className="w-4 h-4" />
               Saved Drafts
             </a>
             <Button
-              variant="hero"
+              variant="linkedin"
               size="sm"
               className="w-full mt-2 px-6 py-2 text-base font-semibold"
               onClick={handleGetStarted}
