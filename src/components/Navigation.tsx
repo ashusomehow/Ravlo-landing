@@ -47,7 +47,7 @@ export default function Navigation() {
               <img src={RavloLogo} alt="Ravlo Logo" className="w-8 h-8 object-contain" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-linkedin-primary-blue tracking-wide group-hover:underline">
+                             <span className="text-xl text-linkedin-primary-blue tracking-wide group-hover:underline">
                 Ravlo
               </span>
               <span className="text-xs text-linkedin-muted -mt-1 tracking-wider">

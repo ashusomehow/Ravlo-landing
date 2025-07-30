@@ -57,7 +57,7 @@ const Index = () => {
                 <Badge variant="secondary" className="bg-linkedin-primary-blue/10 text-linkedin-primary-blue">
                   🚀 Master LinkedIn Growth with AI
                 </Badge>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                                 <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-relaxed">
                   <span className="text-linkedin-primary-blue">
                     Ravlo
                   </span>
@@ -70,7 +70,7 @@ const Index = () => {
                     with AI-Powered Hooks
                   </span>
                 </h1>
-                <p className="text-xl text-linkedin-muted max-w-lg">
+                                 <p className="text-base text-linkedin-muted max-w-lg leading-relaxed">
                   Master LinkedIn growth with {hookStats.total} proven hook templates, 
                   AI-powered content creation, and advanced analytics to optimize your engagement.
                 </p>
@@ -121,11 +121,11 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Proven Hook Templates That
-              <span className="bg-gradient-primary bg-clip-text text-transparent"> Drive Engagement</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                         <h2 className="text-3xl sm:text-4xl leading-relaxed">
+               Proven Hook Templates That
+               <span className="bg-gradient-primary bg-clip-text text-transparent"> Drive Engagement</span>
+             </h2>
+                         <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Choose from {hookStats.total} carefully crafted hook templates across 3 categories, 
               each designed to maximize LinkedIn engagement and grow your audience.
             </p>
@@ -211,10 +211,10 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Why <span className="bg-gradient-primary bg-clip-text text-transparent">Ravlo?</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                         <h2 className="text-3xl sm:text-4xl leading-relaxed">
+               Why <span className="bg-gradient-primary bg-clip-text text-transparent">Ravlo?</span>
+             </h2>
+                         <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Ravlo isn’t just another writing tool — it’s your daily content partner.<br />Here’s how it makes your life easier:
             </p>
           </div>
@@ -222,29 +222,29 @@ const Index = () => {
             <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">⚡</span>
               <div>
-                <h3 className="text-lg font-semibold mb-1">Generate Posts in Seconds</h3>
-                <p className="text-muted-foreground">Go from idea to scroll-stopping post instantly, using proven high-engagement formats.</p>
+                                 <h3 className="text-lg mb-1 leading-relaxed">Generate Posts in Seconds</h3>
+                 <p className="text-muted-foreground leading-relaxed">Go from idea to scroll-stopping post instantly, using proven high-engagement formats.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">📥</span>
               <div>
-                <h3 className="text-lg font-semibold mb-1">Save to Drafts & Reuse</h3>
-                <p className="text-muted-foreground">Plan ahead. Save your posts as drafts and refine or reuse them whenever you want.</p>
+                                 <h3 className="text-lg mb-1 leading-relaxed">Save to Drafts & Reuse</h3>
+                 <p className="text-muted-foreground leading-relaxed">Plan ahead. Save your posts as drafts and refine or reuse them whenever you want.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">📅</span>
               <div>
-                <h3 className="text-lg font-semibold mb-1">Stay Consistent, Effortlessly</h3>
-                <p className="text-muted-foreground">Build your personal brand by showing up daily — without the daily grind.</p>
+                                 <h3 className="text-lg mb-1 leading-relaxed">Stay Consistent, Effortlessly</h3>
+                 <p className="text-muted-foreground leading-relaxed">Build your personal brand by showing up daily — without the daily grind.</p>
               </div>
             </div>
             <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
               <span className="text-3xl">📈</span>
               <div>
-                <h3 className="text-lg font-semibold mb-1">Boost Productivity</h3>
-                <p className="text-muted-foreground">No more blank screens. Ravlo helps you create faster, smarter, and more often.</p>
+                                 <h3 className="text-lg mb-1 leading-relaxed">Boost Productivity</h3>
+                 <p className="text-muted-foreground leading-relaxed">No more blank screens. Ravlo helps you create faster, smarter, and more often.</p>
               </div>
             </div>
           </div>
@@ -255,11 +255,11 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <div className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Ready to Transform Your
-              <span className="bg-gradient-hero bg-clip-text text-transparent"> LinkedIn Growth?</span>
-            </h2>
-            <p className="text-xl text-muted-foreground">
+                         <h2 className="text-3xl sm:text-4xl leading-relaxed">
+               Ready to Transform Your
+               <span className="bg-gradient-hero bg-clip-text text-transparent"> LinkedIn Growth?</span>
+             </h2>
+                         <p className="text-base text-muted-foreground leading-relaxed">
               Join thousands of professionals who are already using Ravlo to create 
               engaging content and grow their LinkedIn presence.
             </p>

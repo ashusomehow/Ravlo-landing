@@ -217,7 +217,7 @@ const PostFormatter: React.FC = () => {
       <div className="max-w-4xl mx-auto py-12 px-4 animate-fade-in">
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl font-bold flex items-center gap-2">
+            <CardTitle className="text-2xl flex items-center gap-2 leading-relaxed">
               <span role="img" aria-label="edit">📝</span> Post Formatter
             </CardTitle>
           </CardHeader>

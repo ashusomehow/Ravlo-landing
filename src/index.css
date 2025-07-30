@@ -306,9 +306,37 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
-  /* Apply LinkedIn font stack to all text elements */
+  /* Apply LinkedIn font stack and text styling to all text elements */
   h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select, label, a {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* Global text styling rules */
+  h1, h2, h3 {
+    font-weight: 600;
+    color: #191919;
+    line-height: 1.5;
+  }
+
+  h4, h5, h6 {
+    font-weight: 600;
+    color: #191919;
+    line-height: 1.5;
+  }
+
+  p, span, div, label, a {
+    font-weight: normal;
+    color: #5E5E5E;
+    line-height: 1.5;
+  }
+
+  /* Remove decorative fonts */
+  .font-bold, .font-semibold {
+    font-weight: 600 !important;
+  }
+
+  .font-normal {
+    font-weight: normal !important;
   }
 
   /* Ensure form elements inherit the font */

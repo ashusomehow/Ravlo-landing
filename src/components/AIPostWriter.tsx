@@ -88,7 +88,7 @@ export default function AIPostWriter() {
             <Sparkles className="w-8 h-8 text-white" />
           </div>
           <div className="space-y-2">
-            <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl leading-relaxed">
               AI Post Writer
             </h1>
             <div className="flex items-center justify-center space-x-2">
@@ -101,7 +101,7 @@ export default function AIPostWriter() {
             </div>
           </div>
         </div>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+        <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
           Create engaging LinkedIn posts using proven hook templates and AI-powered content generation. 
           <span className="text-primary font-medium">No signup required!</span>
         </p>
