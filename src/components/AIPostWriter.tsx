@@ -335,7 +335,7 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
                       <div dangerouslySetInnerHTML={{
                         __html: formatBoldText(generatedPosts.concise.split('\n').map((line, idx) => 
                           `${line}<br />`
@@ -395,7 +395,7 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed font-sans text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
                       <div dangerouslySetInnerHTML={{
                         __html: formatBoldText(generatedPosts.storyRich.split('\n').map((line, idx) => 
                           `${line}<br />`

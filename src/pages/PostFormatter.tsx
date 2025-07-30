@@ -285,7 +285,7 @@ const PostFormatter: React.FC = () => {
             
                          <textarea
                ref={textareaRef}
-               className="min-h-[300px] max-h-[500px] w-full rounded-lg border border-border bg-background/70 p-4 mb-4 focus:outline-primary text-base transition-all shadow-inner overflow-auto font-sans"
+               className="min-h-[300px] max-h-[500px] w-full rounded-lg border border-border bg-background/70 p-4 mb-4 focus:outline-primary text-base transition-all shadow-inner overflow-auto"
                placeholder="Write or paste your LinkedIn post here... Select text and use the formatting buttons above!"
                value={content}
                onChange={e => setContent(e.target.value)}
