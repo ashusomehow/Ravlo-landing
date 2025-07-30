@@ -28,7 +28,7 @@ const Index = () => {
 
   if (currentView === "writer") {
     return (
-      <div className="min-h-screen bg-background animate-fade-in">
+      <div className="min-h-screen bg-linkedin-light animate-fade-in">
         <Navigation />
         <AIPostWriter />
       </div>
@@ -36,7 +36,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background animate-fade-in">
+    <div className="min-h-screen bg-linkedin-light animate-fade-in">
       <Navigation />
       
       {/* Floating Geometric Elements */}
@@ -54,23 +54,23 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="secondary" className="bg-primary/10 text-primary">
+                <Badge variant="secondary" className="bg-linkedin-primary-blue/10 text-linkedin-primary-blue">
                   🚀 Master LinkedIn Growth with AI
                 </Badge>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                  <span className="bg-gradient-hero bg-clip-text text-transparent">
+                  <span className="text-linkedin-primary-blue">
                     Ravlo
                   </span>
                   <br />
-                  <span className="text-foreground">
+                  <span className="text-linkedin-main">
                     Grow Your LinkedIn
                   </span>
                   <br />
-                  <span className="text-foreground">
+                  <span className="text-linkedin-main">
                     with AI-Powered Hooks
                   </span>
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-lg">
+                <p className="text-xl text-linkedin-muted max-w-lg">
                   Master LinkedIn growth with {hookStats.total} proven hook templates, 
                   AI-powered content creation, and advanced analytics to optimize your engagement.
                 </p>
@@ -79,7 +79,7 @@ const Index = () => {
               {/* Button Section - Left aligned with margin */}
               <div className="mt-8 mb-6">
                 <Button 
-                  variant="hero" 
+                  variant="linkedin" 
                   size="xl"
                   onClick={() => setCurrentView("writer")}
                   className="group btn-premium"
@@ -91,16 +91,16 @@ const Index = () => {
 
               <div className="flex items-center space-x-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">{hookStats.total}</div>
-                  <div className="text-sm text-muted-foreground">Hook Templates</div>
+                  <div className="text-2xl font-bold text-linkedin-primary-blue">{hookStats.total}</div>
+                  <div className="text-sm text-linkedin-muted">Hook Templates</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">10k+</div>
-                  <div className="text-sm text-muted-foreground">Posts Created</div>
+                  <div className="text-2xl font-bold text-linkedin-primary-blue">10k+</div>
+                  <div className="text-sm text-linkedin-muted">Posts Created</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">3x</div>
-                  <div className="text-sm text-muted-foreground">Avg. Engagement</div>
+                  <div className="text-2xl font-bold text-linkedin-primary-blue">3x</div>
+                  <div className="text-sm text-linkedin-muted">Avg. Engagement</div>
                 </div>
               </div>
             </div>
