@@ -241,15 +241,6 @@
     --background: 215 30% 8%;
     --foreground: 210 20% 95%;
 
-    /* Dark mode text styling overrides */
-    h1, h2, h3, h4, h5, h6 {
-      color: #FFFFFF !important;
-    }
-
-    p, span, div, label, a {
-      color: #B3B3B3 !important;
-    }
-
     --card: 215 25% 12%;
     --card-foreground: 210 20% 95%;
 
@@ -288,6 +279,7 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
   body {
@@ -295,70 +287,22 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
-  /* Apply LinkedIn font stack and text styling to all text elements */
-  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select, label, a {
+  /* Ensure all headings use the LinkedIn font stack */
+  h1, h2, h3, h4, h5, h6 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
-  /* Global text styling rules */
-  h1, h2, h3 {
-    font-weight: 600;
-    color: #191919;
-    line-height: 1.5;
-  }
-
-  h4, h5, h6 {
-    font-weight: 600;
-    color: #191919;
-    line-height: 1.5;
-  }
-
-  p, span, div, label, a {
-    font-weight: normal;
-    color: #5E5E5E;
-    line-height: 1.5;
-  }
-
-  /* Remove decorative fonts and standardize weights */
-  .font-bold, .font-semibold {
-    font-weight: 600 !important;
-  }
-
-  .font-normal {
-    font-weight: normal !important;
-  }
-
-  /* Remove heavy fonts */
-  .font-black, .font-extrabold {
-    font-weight: 600 !important;
-  }
-
-  /* Standardize text sizes */
-  .text-base {
-    font-size: 1rem !important;
-    line-height: 1.5 !important;
-  }
-
-  .text-sm {
-    font-size: 0.875rem !important;
-    line-height: 1.5 !important;
-  }
-
-  /* Ensure proper line height for all text */
-  .leading-tight {
-    line-height: 1.5 !important;
-  }
-
-  .leading-relaxed {
-    line-height: 1.6 !important;
-  }
-
-  /* Ensure form elements inherit the font */
+  /* Ensure all form elements use the LinkedIn font stack */
   input, textarea, select, button {
-    font-family: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
-  /* Override any component-specific fonts */
+  /* Ensure all cards and components use the LinkedIn font stack */
+  .card, [class*="card"], [class*="Card"] {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* Override any Tailwind font classes that might interfere */
   .font-sans, .font-serif, .font-mono {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
   }
