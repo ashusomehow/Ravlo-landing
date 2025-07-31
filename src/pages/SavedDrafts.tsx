@@ -63,7 +63,7 @@ const SavedDrafts: React.FC = () => {
         <meta property="og:title" content="Saved Drafts – Ravlo LinkedIn Tool" />
         <meta property="og:description" content="Access and manage your saved LinkedIn post drafts. Edit, copy, and organize your content with Ravlo's draft management system." />
         <meta property="og:image" content="/og-preview.png" />
-        <meta property="og:url" content="https://ravlo.ai/saved-drafts" />
+        <meta property="og:url" content="https://www.ravlo.pro/saved-drafts" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Saved Drafts – Ravlo LinkedIn Tool" />

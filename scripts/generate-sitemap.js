@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Define your site URL
-const SITE_URL = 'https://ravlo.ai';
+const SITE_URL = 'https://www.ravlo.pro';
 
 // Define all your public pages
 const pages = [

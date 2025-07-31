@@ -43,7 +43,7 @@ npm run build
 
 ### Sitemap URL:
 ```
-https://ravlo.ai/sitemap.xml
+https://www.ravlo.pro/sitemap.xml
 ```
 
 ## 🤖 Robots.txt Configuration
@@ -71,7 +71,7 @@ https://ravlo.ai/sitemap.xml
 ### Step 1: Add Property
 1. Go to [Google Search Console](https://search.google.com/search-console)
 2. Click "Add Property"
-3. Enter: `https://ravlo.ai`
+3. Enter: `https://www.ravlo.pro`
 4. Choose "Domain" property type (recommended)
 
 ### Step 2: Verify Ownership

@@ -221,7 +221,7 @@ const PostFormatter: React.FC = () => {
         <meta property="og:title" content="Post Formatter – Ravlo LinkedIn Tool" />
         <meta property="og:description" content="Format and style your LinkedIn posts with Unicode formatting that persists across all platforms. Bold, italic, underline, and save drafts." />
         <meta property="og:image" content="/og-preview.png" />
-        <meta property="og:url" content="https://ravlo.ai/post-formatter" />
+        <meta property="og:url" content="https://www.ravlo.pro/post-formatter" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Post Formatter – Ravlo LinkedIn Tool" />
