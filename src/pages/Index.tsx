@@ -43,13 +43,13 @@ const Index = () => {
         <meta name="description" content="Ravlo helps you write, format, and save AI-generated LinkedIn posts in seconds. Boost your productivity and consistency with this LinkedIn post tool." />
         <meta name="keywords" content="LinkedIn post writer, LinkedIn post formatter, AI LinkedIn post generator, LinkedIn writing tool, schedule LinkedIn posts" />
         <meta property="og:title" content="Ravlo – AI LinkedIn Post Tool" />
-        <meta property="og:description" content="Write and format viral LinkedIn posts instantly with Ravlo. Save drafts, copy formatted text, and boost consistency." />
+        <meta property="og:description" content="Write and format viral LinkedIn posts with Ravlo." />
         <meta property="og:image" content="/og-preview.png" />
-        <meta property="og:url" content="https://ravlo.ai/" />
+        <meta property="og:url" content="https://www.ravlo.pro/" />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ravlo – AI LinkedIn Post Tool" />
-        <meta name="twitter:description" content="Write and format viral LinkedIn posts instantly with Ravlo. Save drafts, copy formatted text, and boost consistency." />
+        <meta name="twitter:description" content="Write and format viral LinkedIn posts with Ravlo." />
         <meta name="twitter:image" content="/og-preview.png" />
       </Helmet>
       <div className="min-h-screen bg-background animate-fade-in">

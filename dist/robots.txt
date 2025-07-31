@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://ravlo.ai/sitemap.xml
+Sitemap: https://www.ravlo.pro/sitemap.xml
 
 # Block access to internal APIs and sensitive files
 Disallow: /api/
