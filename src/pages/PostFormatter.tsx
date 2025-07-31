@@ -215,9 +215,9 @@ const PostFormatter: React.FC = () => {
     <>
       <Navigation />
       <div className="max-w-4xl mx-auto py-12 px-4 animate-fade-in">
-        <Card>
+        <Card className="bg-gradient-to-br from-blue-50/60 via-white/80 to-blue-100/60 dark:from-slate-900/60 dark:via-slate-800/80 dark:to-blue-900/60 shadow-2xl border-2 border-primary/10 backdrop-blur-xl">
           <CardHeader>
-            <CardTitle className="text-2xl flex items-center gap-2 leading-relaxed">
+            <CardTitle className="text-2xl font-bold flex items-center gap-2">
               <span role="img" aria-label="edit">📝</span> Post Formatter
             </CardTitle>
           </CardHeader>
@@ -294,12 +294,12 @@ const PostFormatter: React.FC = () => {
              />
             
             <div className="flex gap-2 mb-2">
-              <Button onClick={handleCopy} variant="linkedin" size="sm" className="flex items-center gap-2">
+              <Button onClick={handleCopy} variant="outline" size="sm" className="flex items-center gap-2">
                 <Copy className="w-4 h-4" /> Copy
               </Button>
             </div>
             
-            <Button onClick={handleSave} className="w-full mt-2" variant="linkedin">
+            <Button onClick={handleSave} className="w-full mt-2" variant="hero">
               {editingId ? "Update Draft" : "Save Draft"}
             </Button>
           </CardContent>

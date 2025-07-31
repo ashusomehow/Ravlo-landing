@@ -88,7 +88,7 @@ export default function AIPostWriter() {
             <Sparkles className="w-8 h-8 text-white" />
           </div>
           <div className="space-y-2">
-            <h1 className="text-4xl leading-relaxed">
+            <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               AI Post Writer
             </h1>
             <div className="flex items-center justify-center space-x-2">
@@ -101,7 +101,7 @@ export default function AIPostWriter() {
             </div>
           </div>
         </div>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
+        <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
           Create engaging LinkedIn posts using proven hook templates and AI-powered content generation. 
           <span className="text-primary font-medium">No signup required!</span>
         </p>
@@ -111,7 +111,7 @@ export default function AIPostWriter() {
         {/* Input Section */}
         <div className="space-y-6">
           {/* Hook Selection */}
-          <Card className="mb-6">
+          <Card className="border-2 border-primary/10 bg-gradient-to-br from-primary/5 via-transparent to-brand-purple/5 hover:border-primary/20 transition-all duration-300 hover:shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -137,7 +137,7 @@ export default function AIPostWriter() {
           </Card>
 
           {/* Content Configuration */}
-          <Card className="mb-6">
+          <Card className="border-2 border-brand-purple/10 bg-gradient-to-br from-brand-purple/5 via-transparent to-primary/5 hover:border-brand-purple/20 transition-all duration-300 hover:shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-primary rounded-lg flex items-center justify-center">
@@ -231,7 +231,7 @@ export default function AIPostWriter() {
                 onClick={handleGenerate}
                 disabled={!isFormValid || isGenerating}
                 className="w-full relative overflow-hidden group"
-                variant="linkedin"
+                variant="hero"
                 size="lg"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary via-brand-purple to-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
@@ -304,7 +304,7 @@ export default function AIPostWriter() {
           ) : generatedPosts ? (
             <>
               {/* Concise Version */}
-              <Card className="mb-6">
+              <Card className="border-2 border-brand-green/30 bg-gradient-to-br from-brand-green/10 via-brand-green/5 to-transparent hover:border-brand-green/40 transition-all duration-300 hover:shadow-lg animate-scale-in">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center space-x-3">
@@ -335,7 +335,7 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-[#F3F2EF] p-4 rounded-md border border-[#E0DFDC]">
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
                       <div dangerouslySetInnerHTML={{
                         __html: formatBoldText(generatedPosts.concise.split('\n').map((line, idx) => 
                           `${line}<br />`
@@ -344,7 +344,7 @@ export default function AIPostWriter() {
                     </div>
                   </div>
                   <Button
-                    variant="linkedin"
+                    variant="secondary"
                     size="sm"
                     className="mt-4 w-full transition-all duration-300 hover:scale-105"
                     onClick={() => {
@@ -364,7 +364,7 @@ export default function AIPostWriter() {
               </Card>
 
               {/* Story-Rich Version */}
-              <Card className="mb-6">
+              <Card className="border-2 border-brand-purple/30 bg-gradient-to-br from-brand-purple/10 via-brand-purple/5 to-transparent hover:border-brand-purple/40 transition-all duration-300 hover:shadow-lg animate-scale-in">
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center space-x-3">
@@ -395,7 +395,7 @@ export default function AIPostWriter() {
                 </CardHeader>
                 <CardContent>
                   <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-[#F3F2EF] p-4 rounded-md border border-[#E0DFDC]">
+                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
                       <div dangerouslySetInnerHTML={{
                         __html: formatBoldText(generatedPosts.storyRich.split('\n').map((line, idx) => 
                           `${line}<br />`
@@ -404,7 +404,7 @@ export default function AIPostWriter() {
                     </div>
                   </div>
                   <Button
-                    variant="linkedin"
+                    variant="secondary"
                     size="sm"
                     className="mt-4 w-full transition-all duration-300 hover:scale-105"
                     onClick={() => {
@@ -425,7 +425,7 @@ export default function AIPostWriter() {
               {/* Action Buttons */}
               <div className="flex space-x-4">
                 <Button 
-                  variant="linkedin" 
+                  variant="secondary" 
                   onClick={handleGenerate}
                   disabled={isGenerating}
                   className="flex-1 relative overflow-hidden group hover:scale-105 transition-all duration-300"

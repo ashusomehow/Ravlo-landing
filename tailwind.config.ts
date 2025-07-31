@@ -22,16 +22,6 @@ export default {
 				sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
 			},
 			colors: {
-				/* LinkedIn Color Palette */
-				'linkedin': {
-					'primary-blue': '#0A66C2',
-					'hover-blue': '#004182',
-					'text-main': '#191919',
-					'text-muted': '#5E5E5E',
-					'bg-light': '#FFFFFF',
-					'bg-secondary': '#F3F2EF',
-					'border-gray': '#E0DFDC',
-				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

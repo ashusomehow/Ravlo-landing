@@ -28,7 +28,7 @@ const Index = () => {
 
   if (currentView === "writer") {
     return (
-      <div className="min-h-screen bg-linkedin-light animate-fade-in">
+      <div className="min-h-screen bg-background animate-fade-in">
         <Navigation />
         <AIPostWriter />
       </div>
@@ -36,7 +36,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-linkedin-light animate-fade-in">
+    <div className="min-h-screen bg-background animate-fade-in">
       <Navigation />
       
       {/* Floating Geometric Elements */}
@@ -47,62 +47,62 @@ const Index = () => {
         <div className="floating-shape"></div>
       </div>
       
-             {/* Hero Section */}
-       <section className="relative py-8 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: 'linear-gradient(90deg, #0A66C2 0%, #004182 100%)' }}>
-         <div className="absolute inset-0 bg-gradient-hero opacity-10" />
+      {/* Hero Section */}
+      <section className="relative py-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-hero opacity-10" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                                 <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-                   🚀 Master LinkedIn Growth with AI
-                 </Badge>
-                 <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-relaxed text-white">
-                   <span className="text-white">
-                     Ravlo
-                   </span>
-                   <br />
-                   <span className="text-white">
-                     Grow Your LinkedIn
-                   </span>
-                   <br />
-                   <span className="text-white">
-                     with AI-Powered Hooks
-                   </span>
-                 </h1>
-                 <p className="text-base text-white/90 max-w-lg leading-relaxed">
+                <Badge variant="secondary" className="bg-primary/10 text-primary">
+                  🚀 Master LinkedIn Growth with AI
+                </Badge>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+                  <span className="bg-gradient-hero bg-clip-text text-transparent">
+                    Ravlo
+                  </span>
+                  <br />
+                  <span className="text-foreground">
+                    Grow Your LinkedIn
+                  </span>
+                  <br />
+                  <span className="text-foreground">
+                    with AI-Powered Hooks
+                  </span>
+                </h1>
+                <p className="text-xl text-muted-foreground max-w-lg">
                   Master LinkedIn growth with {hookStats.total} proven hook templates, 
                   AI-powered content creation, and advanced analytics to optimize your engagement.
                 </p>
               </div>
 
-                             {/* Button Section - Left aligned with margin */}
-               <div className="mt-8 mb-6">
-                 <Button 
-                   variant="default" 
-                   size="xl"
-                   onClick={() => setCurrentView("writer")}
-                   className="group btn-premium bg-white text-[#0A66C2] hover:bg-gray-100 hover:text-[#004182]"
-                 >
-                   Start Growing with Ravlo
-                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                 </Button>
-               </div>
+              {/* Button Section - Left aligned with margin */}
+              <div className="mt-8 mb-6">
+                <Button 
+                  variant="hero" 
+                  size="xl"
+                  onClick={() => setCurrentView("writer")}
+                  className="group btn-premium"
+                >
+                  Start Growing with Ravlo
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
 
-                             <div className="flex items-center space-x-8">
-                 <div className="text-center">
-                   <div className="text-2xl font-bold text-white">{hookStats.total}</div>
-                   <div className="text-sm text-white/80">Hook Templates</div>
-                 </div>
-                 <div className="text-center">
-                   <div className="text-2xl font-bold text-white">10k+</div>
-                   <div className="text-sm text-white/80">Posts Created</div>
-                 </div>
-                 <div className="text-center">
-                   <div className="text-2xl font-bold text-white">3x</div>
-                   <div className="text-sm text-white/80">Avg. Engagement</div>
-                 </div>
-               </div>
+              <div className="flex items-center space-x-8">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">{hookStats.total}</div>
+                  <div className="text-sm text-muted-foreground">Hook Templates</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">10k+</div>
+                  <div className="text-sm text-muted-foreground">Posts Created</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary">3x</div>
+                  <div className="text-sm text-muted-foreground">Avg. Engagement</div>
+                </div>
+              </div>
             </div>
 
             <div className="relative">
@@ -121,18 +121,18 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-                         <h2 className="text-3xl sm:text-4xl leading-relaxed">
-               Proven Hook Templates That
-               <span className="bg-gradient-primary bg-clip-text text-transparent"> Drive Engagement</span>
-             </h2>
-                         <p className="text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-bold">
+              Proven Hook Templates That
+              <span className="bg-gradient-primary bg-clip-text text-transparent"> Drive Engagement</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Choose from {hookStats.total} carefully crafted hook templates across 3 categories, 
               each designed to maximize LinkedIn engagement and grow your audience.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="mb-6">
+            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-card">
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Lightbulb className="w-8 h-8 text-white" />
@@ -156,7 +156,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="mb-6">
+            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-card">
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <BookOpen className="w-8 h-8 text-white" />
@@ -180,7 +180,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="mb-6">
+            <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-gradient-card">
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Zap className="w-8 h-8 text-white" />
@@ -211,40 +211,40 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-12">
-                         <h2 className="text-3xl sm:text-4xl leading-relaxed">
-               Why <span className="bg-gradient-primary bg-clip-text text-transparent">Ravlo?</span>
-             </h2>
-                         <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-bold">
+              Why <span className="bg-gradient-primary bg-clip-text text-transparent">Ravlo?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Ravlo isn’t just another writing tool — it’s your daily content partner.<br />Here’s how it makes your life easier:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
               <span className="text-3xl">⚡</span>
               <div>
-                                 <h3 className="text-lg mb-1 leading-relaxed">Generate Posts in Seconds</h3>
-                 <p className="text-muted-foreground leading-relaxed">Go from idea to scroll-stopping post instantly, using proven high-engagement formats.</p>
+                <h3 className="text-lg font-semibold mb-1">Generate Posts in Seconds</h3>
+                <p className="text-muted-foreground">Go from idea to scroll-stopping post instantly, using proven high-engagement formats.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
               <span className="text-3xl">📥</span>
               <div>
-                                 <h3 className="text-lg mb-1 leading-relaxed">Save to Drafts & Reuse</h3>
-                 <p className="text-muted-foreground leading-relaxed">Plan ahead. Save your posts as drafts and refine or reuse them whenever you want.</p>
+                <h3 className="text-lg font-semibold mb-1">Save to Drafts & Reuse</h3>
+                <p className="text-muted-foreground">Plan ahead. Save your posts as drafts and refine or reuse them whenever you want.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
               <span className="text-3xl">📅</span>
               <div>
-                                 <h3 className="text-lg mb-1 leading-relaxed">Stay Consistent, Effortlessly</h3>
-                 <p className="text-muted-foreground leading-relaxed">Build your personal brand by showing up daily — without the daily grind.</p>
+                <h3 className="text-lg font-semibold mb-1">Stay Consistent, Effortlessly</h3>
+                <p className="text-muted-foreground">Build your personal brand by showing up daily — without the daily grind.</p>
               </div>
             </div>
-            <div className="flex items-start gap-4 p-4 rounded-md border border-[#E0DFDC] bg-white">
+            <div className="flex items-start gap-4 p-6 rounded-2xl bg-background/80 shadow-lg border border-border/30">
               <span className="text-3xl">📈</span>
               <div>
-                                 <h3 className="text-lg mb-1 leading-relaxed">Boost Productivity</h3>
-                 <p className="text-muted-foreground leading-relaxed">No more blank screens. Ravlo helps you create faster, smarter, and more often.</p>
+                <h3 className="text-lg font-semibold mb-1">Boost Productivity</h3>
+                <p className="text-muted-foreground">No more blank screens. Ravlo helps you create faster, smarter, and more often.</p>
               </div>
             </div>
           </div>
@@ -255,11 +255,11 @@ const Index = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <div className="space-y-4">
-                         <h2 className="text-3xl sm:text-4xl leading-relaxed">
-               Ready to Transform Your
-               <span className="bg-gradient-hero bg-clip-text text-transparent"> LinkedIn Growth?</span>
-             </h2>
-                         <p className="text-base text-muted-foreground leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-bold">
+              Ready to Transform Your
+              <span className="bg-gradient-hero bg-clip-text text-transparent"> LinkedIn Growth?</span>
+            </h2>
+            <p className="text-xl text-muted-foreground">
               Join thousands of professionals who are already using Ravlo to create 
               engaging content and grow their LinkedIn presence.
             </p>
@@ -267,7 +267,7 @@ const Index = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="linkedin" 
+              variant="hero" 
               size="xl"
               onClick={() => setCurrentView("writer")}
               className="group btn-premium"
