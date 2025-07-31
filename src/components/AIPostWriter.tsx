@@ -44,11 +44,21 @@ export default function AIPostWriter() {
     setGeneratedPosts(null);
 
     try {
+      // Get an engaging fallback hook based on the selected category
+      const getFallbackHook = (category: HookCategory) => {
+        const fallbackHooks = {
+          curiosity: "Did you know that...",
+          story: "I want to tell you a story about...",
+          provoke: "Someone has to say this...",
+        };
+        return fallbackHooks[category] || "Here's something that might surprise you...";
+      };
+
       const request: GeneratePostRequest = {
         topic: topic.trim(),
         tone,
         hookCategory: selectedCategory,
-        hookTemplate: selectedTemplate?.template || "Start with an engaging opening...",
+        hookTemplate: selectedTemplate?.template || getFallbackHook(selectedCategory),
         description: description.trim() || undefined,
         useEmojis,
         addHashtags,
