@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -55,6 +56,20 @@ const SavedDrafts: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Saved Drafts – Ravlo LinkedIn Tool</title>
+        <meta name="description" content="Access and manage your saved LinkedIn post drafts. Edit, copy, and organize your content with Ravlo's draft management system." />
+        <meta name="keywords" content="LinkedIn drafts, post drafts, content management, LinkedIn writing, draft organizer" />
+        <meta property="og:title" content="Saved Drafts – Ravlo LinkedIn Tool" />
+        <meta property="og:description" content="Access and manage your saved LinkedIn post drafts. Edit, copy, and organize your content with Ravlo's draft management system." />
+        <meta property="og:image" content="/og-preview.png" />
+        <meta property="og:url" content="https://ravlo.ai/saved-drafts" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Saved Drafts – Ravlo LinkedIn Tool" />
+        <meta name="twitter:description" content="Access and manage your saved LinkedIn post drafts. Edit, copy, and organize your content with Ravlo's draft management system." />
+        <meta name="twitter:image" content="/og-preview.png" />
+      </Helmet>
       <Navigation />
       <div className="max-w-5xl mx-auto py-12 px-4 animate-fade-in">
         <h1 className="text-3xl font-bold mb-8">Saved Drafts</h1>

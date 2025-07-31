@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -213,6 +214,20 @@ const PostFormatter: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Post Formatter – Ravlo LinkedIn Tool</title>
+        <meta name="description" content="Format and style your LinkedIn posts with Unicode formatting that persists across all platforms. Bold, italic, underline, and save drafts with Ravlo." />
+        <meta name="keywords" content="LinkedIn post formatter, Unicode formatting, LinkedIn text styling, post drafts, LinkedIn writing tool" />
+        <meta property="og:title" content="Post Formatter – Ravlo LinkedIn Tool" />
+        <meta property="og:description" content="Format and style your LinkedIn posts with Unicode formatting that persists across all platforms. Bold, italic, underline, and save drafts." />
+        <meta property="og:image" content="/og-preview.png" />
+        <meta property="og:url" content="https://ravlo.ai/post-formatter" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Post Formatter – Ravlo LinkedIn Tool" />
+        <meta name="twitter:description" content="Format and style your LinkedIn posts with Unicode formatting that persists across all platforms. Bold, italic, underline, and save drafts." />
+        <meta name="twitter:image" content="/og-preview.png" />
+      </Helmet>
       <Navigation />
       <div className="max-w-4xl mx-auto py-12 px-4 animate-fade-in">
         <Card className="bg-gradient-to-br from-blue-50/60 via-white/80 to-blue-100/60 dark:from-slate-900/60 dark:via-slate-800/80 dark:to-blue-900/60 shadow-2xl border-2 border-primary/10 backdrop-blur-xl">
