@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { Loader2, Copy, Check, Sparkles, FileText, MessageSquare } from "lucide-react";
+import { Loader2, Copy, Check, Sparkles, FileText, MessageSquare, ChevronDown, ChevronUp, Settings } from "lucide-react";
 import { toast } from "sonner";
 import HookSelector from "./HookSelector";
 import { HookCategory, HookTemplate } from "@/lib/hooks";
@@ -33,6 +33,7 @@ export default function AIPostWriter() {
   const [useEmojis, setUseEmojis] = useState(false);
   const [addHashtags, setAddHashtags] = useState(false);
   const [useBullets, setUseBullets] = useState(false);
+  const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
 
   const handleGenerate = async () => {
     if (!selectedCategory || !topic.trim()) {
@@ -90,153 +91,65 @@ export default function AIPostWriter() {
   const isFormValid = selectedCategory && topic.trim();
 
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-8">
-      {/* Header */}
-      <div className="text-center space-y-6 animate-fade-in">
-        <div className="flex items-center justify-center space-x-4">
-          <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-2xl animate-pulse">
-            <Sparkles className="w-8 h-8 text-white" />
+    <div className="max-w-5xl mx-auto p-4 sm:p-6 space-y-6">
+      {/* Simplified Header */}
+      <div className="text-center space-y-4 animate-fade-in">
+        <div className="flex items-center justify-center space-x-3">
+          <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+            <Sparkles className="w-6 h-6 text-white" />
           </div>
-          <div className="space-y-2">
-            <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+          <div className="space-y-1">
+            <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
               AI Post Writer
             </h1>
-            <div className="flex items-center justify-center space-x-2">
-              <span className="px-3 py-1 bg-brand-green/10 text-brand-green text-sm font-medium rounded-full border border-brand-green/20">
-                ✨ 100% Free Tool
-              </span>
-              <span className="px-3 py-1 bg-brand-purple/10 text-brand-purple text-sm font-medium rounded-full border border-brand-purple/20">
-                🚀 97 Hook Templates
-              </span>
-            </div>
+            <p className="text-sm text-muted-foreground">Create engaging LinkedIn posts in seconds</p>
           </div>
         </div>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-          Create engaging LinkedIn posts using proven hook templates and AI-powered content generation. 
-          <span className="text-primary font-medium">No signup required!</span>
-        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Input Section */}
-        <div className="space-y-6">
-          {/* Hook Selection */}
-          <Card className="border-2 border-primary/10 bg-gradient-to-br from-primary/5 via-transparent to-brand-purple/5 hover:border-primary/20 transition-all duration-300 hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <MessageSquare className="w-4 h-4 text-white" />
-                </div>
-                <span>Hook Templates</span>
-                <span className="ml-auto px-2 py-1 bg-brand-green/10 text-brand-green text-xs font-medium rounded-full">
-                  97 Templates
-                </span>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Simplified Input Section */}
+        <div className="space-y-4">
+          {/* Essential Fields Card */}
+          <Card className="border border-border/50 bg-background/50 shadow-sm">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-lg flex items-center space-x-2">
+                <MessageSquare className="w-5 h-5 text-primary" />
+                <span>Quick Start</span>
               </CardTitle>
               <CardDescription>
-                Choose from our collection of proven hook templates that drive engagement
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <HookSelector
-                selectedCategory={selectedCategory}
-                selectedTemplate={selectedTemplate}
-                onCategoryChange={setSelectedCategory}
-                onTemplateChange={setSelectedTemplate}
-              />
-            </CardContent>
-          </Card>
-
-          {/* Content Configuration */}
-          <Card className="border-2 border-brand-purple/10 bg-gradient-to-br from-brand-purple/5 via-transparent to-primary/5 hover:border-brand-purple/20 transition-all duration-300 hover:shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-r from-brand-purple to-primary rounded-lg flex items-center justify-center">
-                  <FileText className="w-4 h-4 text-white" />
-                </div>
-                <span>Content Details</span>
-              </CardTitle>
-              <CardDescription>
-                Provide topic and context for your LinkedIn post
+                Just fill these two fields to get started
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              {/* Hook Selection - Simplified */}
               <div className="space-y-2">
-                <Label htmlFor="topic">Topic *</Label>
+                <Label className="text-sm font-medium">Hook Category *</Label>
+                <Select value={selectedCategory} onValueChange={(value: any) => setSelectedCategory(value)}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Choose a category..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="curiosity">Curiosity Hooks</SelectItem>
+                    <SelectItem value="story">Story Hooks</SelectItem>
+                    <SelectItem value="provoke">Provocative Hooks</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              {/* Topic Input */}
+              <div className="space-y-2">
+                <Label htmlFor="topic" className="text-sm font-medium">What's your post about? *</Label>
                 <Input
                   id="topic"
                   placeholder="e.g., Remote work productivity tips"
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
+                  className="w-full"
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="tone">Tone</Label>
-                <Select value={tone} onValueChange={(value: any) => setTone(value)}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Professional">Professional</SelectItem>
-                    <SelectItem value="Casual">Casual</SelectItem>
-                    <SelectItem value="Motivational">Motivational</SelectItem>
-                    <SelectItem value="Analytical">Analytical</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="description">Additional Context (Optional)</Label>
-                <Textarea
-                  id="description"
-                  placeholder="Any specific details, personal experience, or context you'd like to include..."
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  rows={3}
-                />
-              </div>
-
-              {/* Post Formatting Options */}
-              <div className="space-y-3">
-                <Label className="text-sm font-medium">Post Formatting</Label>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <Switch
-                        id="useEmojis"
-                        checked={useEmojis}
-                        onCheckedChange={setUseEmojis}
-                      />
-                      <Label htmlFor="useEmojis" className="text-sm">Use Emojis</Label>
-                    </div>
-                    <span className="text-xs text-muted-foreground">Modern posts typically avoid emojis</span>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <Switch
-                        id="addHashtags"
-                        checked={addHashtags}
-                        onCheckedChange={setAddHashtags}
-                      />
-                      <Label htmlFor="addHashtags" className="text-sm">Add Hashtags at the end</Label>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <Switch
-                        id="useBullets"
-                        checked={useBullets}
-                        onCheckedChange={setUseBullets}
-                      />
-                      <Label htmlFor="useBullets" className="text-sm">Use Bullets with '→'</Label>
-                    </div>
-                    <span className="text-xs text-muted-foreground">Modern posts typically use this</span>
-                  </div>
-                </div>
-              </div>
-
+              {/* Generate Button - Prominent */}
               <Button
                 onClick={handleGenerate}
                 disabled={!isFormValid || isGenerating}
@@ -248,90 +161,173 @@ export default function AIPostWriter() {
                 {isGenerating ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                    <span className="animate-pulse">Generating Posts...</span>
+                    <span className="animate-pulse">Creating your post...</span>
                   </>
                 ) : (
                   <>
                     <Sparkles className="w-5 h-5 mr-2" />
-                    Generate LinkedIn Posts
-                    <div className="ml-2 px-2 py-1 bg-white/20 rounded-full text-xs">
-                      FREE
-                    </div>
+                    Generate Post
                   </>
                 )}
               </Button>
             </CardContent>
           </Card>
+
+          {/* Advanced Options - Collapsible */}
+          <Card className="border border-border/50 bg-background/50 shadow-sm">
+            <CardHeader 
+              className="pb-4 cursor-pointer hover:bg-muted/30 transition-colors"
+              onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}
+            >
+              <CardTitle className="text-lg flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <Settings className="w-5 h-5 text-muted-foreground" />
+                  <span>Customize (Optional)</span>
+                </div>
+                {showAdvancedOptions ? (
+                  <ChevronUp className="w-5 h-5 text-muted-foreground" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                )}
+              </CardTitle>
+              <CardDescription>
+                Fine-tune your post with additional options
+              </CardDescription>
+            </CardHeader>
+            
+            {showAdvancedOptions && (
+              <CardContent className="space-y-4 pt-0">
+                <Separator />
+                
+                {/* Hook Template Selection */}
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium">Specific Hook Template</Label>
+                  <HookSelector
+                    selectedCategory={selectedCategory}
+                    selectedTemplate={selectedTemplate}
+                    onCategoryChange={setSelectedCategory}
+                    onTemplateChange={setSelectedTemplate}
+                  />
+                </div>
+
+                {/* Tone Selection */}
+                <div className="space-y-2">
+                  <Label htmlFor="tone" className="text-sm font-medium">Writing Tone</Label>
+                  <Select value={tone} onValueChange={(value: any) => setTone(value)}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Professional">Professional</SelectItem>
+                      <SelectItem value="Casual">Casual</SelectItem>
+                      <SelectItem value="Motivational">Motivational</SelectItem>
+                      <SelectItem value="Analytical">Analytical</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                {/* Additional Context */}
+                <div className="space-y-2">
+                  <Label htmlFor="description" className="text-sm font-medium">Additional Context</Label>
+                  <Textarea
+                    id="description"
+                    placeholder="Any specific details or personal experience..."
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    rows={2}
+                  />
+                </div>
+
+                {/* Post Formatting Options - Simplified */}
+                <div className="space-y-3">
+                  <Label className="text-sm font-medium">Formatting Options</Label>
+                  <div className="grid grid-cols-1 gap-3">
+                    <div className="flex items-center justify-between p-3 rounded-lg border border-border/50 bg-background/30">
+                      <div className="flex items-center space-x-2">
+                        <Switch
+                          id="useEmojis"
+                          checked={useEmojis}
+                          onCheckedChange={setUseEmojis}
+                        />
+                        <Label htmlFor="useEmojis" className="text-sm">Include Emojis</Label>
+                      </div>
+                      <span className="text-xs text-muted-foreground">Modern posts typically avoid emojis</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-3 rounded-lg border border-border/50 bg-background/30">
+                      <div className="flex items-center space-x-2">
+                        <Switch
+                          id="addHashtags"
+                          checked={addHashtags}
+                          onCheckedChange={setAddHashtags}
+                        />
+                        <Label htmlFor="addHashtags" className="text-sm">Add Hashtags</Label>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-3 rounded-lg border border-border/50 bg-background/30">
+                      <div className="flex items-center space-x-2">
+                        <Switch
+                          id="useBullets"
+                          checked={useBullets}
+                          onCheckedChange={setUseBullets}
+                        />
+                        <Label htmlFor="useBullets" className="text-sm">Use Bullet Points</Label>
+                      </div>
+                      <span className="text-xs text-muted-foreground">Modern posts typically use this</span>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            )}
+          </Card>
         </div>
 
-        {/* Output Section */}
-        <div className="space-y-6">
+        {/* Output Section - Simplified */}
+        <div className="space-y-4">
           {isGenerating ? (
             <>
-              {/* Loading Skeletons */}
-              <Card className="border-2 border-brand-green/30 bg-gradient-to-br from-brand-green/10 via-brand-green/5 to-transparent">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="skeleton w-20 h-6 rounded-full"></div>
-                      <div className="skeleton w-24 h-4 rounded"></div>
-                    </div>
-                    <div className="skeleton w-16 h-8 rounded"></div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="skeleton h-4 w-full rounded"></div>
-                    <div className="skeleton h-4 w-3/4 rounded"></div>
-                    <div className="skeleton h-4 w-5/6 rounded"></div>
-                    <div className="skeleton h-4 w-2/3 rounded"></div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-brand-purple/30 bg-gradient-to-br from-brand-purple/10 via-brand-purple/5 to-transparent">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="skeleton w-24 h-6 rounded-full"></div>
-                      <div className="skeleton w-24 h-4 rounded"></div>
-                    </div>
-                    <div className="skeleton w-16 h-8 rounded"></div>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    <div className="skeleton h-4 w-full rounded"></div>
-                    <div className="skeleton h-4 w-5/6 rounded"></div>
-                    <div className="skeleton h-4 w-full rounded"></div>
-                    <div className="skeleton h-4 w-4/5 rounded"></div>
-                    <div className="skeleton h-4 w-3/4 rounded"></div>
-                    <div className="skeleton h-4 w-5/6 rounded"></div>
+              {/* Loading State - Simplified */}
+              <Card className="border border-border/50 bg-background/50">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-center space-x-3">
+                    <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                    <span className="text-muted-foreground">Creating your post...</span>
                   </div>
                 </CardContent>
               </Card>
             </>
           ) : generatedPosts ? (
             <>
-              {/* Concise Version */}
-              <Card className="border-2 border-brand-green/30 bg-gradient-to-br from-brand-green/10 via-brand-green/5 to-transparent hover:border-brand-green/40 transition-all duration-300 hover:shadow-lg animate-scale-in">
+              {/* Generated Posts - Simplified */}
+              <Card className="border border-border/50 bg-background/50">
                 <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="flex items-center space-x-3">
-                      <Badge variant="secondary" className="bg-brand-green/20 text-brand-green border border-brand-green/30 px-3 py-1">
-                        ⚡ Concise
-                      </Badge>
-                      <span className="text-sm font-medium text-muted-foreground">≤150 words</span>
-                    </CardTitle>
+                  <CardTitle className="text-lg flex items-center space-x-2">
+                    <Sparkles className="w-5 h-5 text-primary" />
+                    <span>Your Generated Post</span>
+                  </CardTitle>
+                  <CardDescription>
+                    Copy, edit, or send to formatter
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="p-4 bg-muted/30 rounded-lg border">
+                    <div 
+                      className="whitespace-pre-wrap text-sm leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: formatBoldText(generatedPosts.concise) }}
+                    />
+                  </div>
+                  
+                  <div className="flex gap-2">
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => handleCopy(generatedPosts.concise, "concise")}
-                      className="hover:bg-brand-green/10 hover:border-brand-green/30 transition-all duration-200 hover:scale-105"
+                      className="flex-1"
                     >
                       {copiedVersion === "concise" ? (
                         <>
-                          <Check className="w-4 h-4 text-brand-green mr-2" />
+                          <Check className="w-4 h-4 mr-2" />
                           Copied!
                         </>
                       ) : (
@@ -341,142 +337,38 @@ export default function AIPostWriter() {
                         </>
                       )}
                     </Button>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
-                      <div dangerouslySetInnerHTML={{
-                        __html: formatBoldText(generatedPosts.concise.split('\n').map((line, idx) => 
-                          `${line}<br />`
-                        ).join(''))
-                      }} />
-                    </div>
-                  </div>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    className="mt-4 w-full transition-all duration-300 hover:scale-105"
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      setTimeout(() => {
-                        // Use useNavigate if available, otherwise fallback
-                        if (typeof window !== 'undefined') {
-                          window.location.href = '/post-formatter';
-                          localStorage.setItem('ravlo-formatter-preload', generatedPosts.concise);
-                        }
-                      }, 200);
-                    }}
-                  >
-                    ✍️ Copy to Formatter
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Story-Rich Version */}
-              <Card className="border-2 border-brand-purple/30 bg-gradient-to-br from-brand-purple/10 via-brand-purple/5 to-transparent hover:border-brand-purple/40 transition-all duration-300 hover:shadow-lg animate-scale-in">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="flex items-center space-x-3">
-                      <Badge variant="secondary" className="bg-brand-purple/20 text-brand-purple border border-brand-purple/30 px-3 py-1">
-                        📖 Story-Rich
-                      </Badge>
-                      <span className="text-sm font-medium text-muted-foreground">≤300 words</span>
-                    </CardTitle>
+                    
                     <Button
-                      variant="outline"
+                      variant="secondary"
                       size="sm"
-                      onClick={() => handleCopy(generatedPosts.storyRich, "storyRich")}
-                      className="hover:bg-brand-purple/10 hover:border-brand-purple/30 transition-all duration-200 hover:scale-105"
+                      className="flex-1"
+                      onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        setTimeout(() => {
+                          if (typeof window !== 'undefined') {
+                            window.location.href = '/post-formatter';
+                            localStorage.setItem('ravlo-formatter-preload', generatedPosts.concise);
+                          }
+                        }, 200);
+                      }}
                     >
-                      {copiedVersion === "storyRich" ? (
-                        <>
-                          <Check className="w-4 h-4 text-brand-purple mr-2" />
-                          Copied!
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-4 h-4 mr-2" />
-                          Copy
-                        </>
-                      )}
+                      ✍️ Edit in Formatter
                     </Button>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="prose prose-sm max-w-none">
-                    <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground bg-background/50 p-4 rounded-lg border border-border/50">
-                      <div dangerouslySetInnerHTML={{
-                        __html: formatBoldText(generatedPosts.storyRich.split('\n').map((line, idx) => 
-                          `${line}<br />`
-                        ).join(''))
-                      }} />
-                    </div>
-                  </div>
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    className="mt-4 w-full transition-all duration-300 hover:scale-105"
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      setTimeout(() => {
-                        if (typeof window !== 'undefined') {
-                          window.location.href = '/post-formatter';
-                          localStorage.setItem('ravlo-formatter-preload', generatedPosts.storyRich);
-                        }
-                      }, 200);
-                    }}
-                  >
-                    ✍️ Copy to Formatter
-                  </Button>
                 </CardContent>
               </Card>
-
-              {/* Action Buttons */}
-              <div className="flex space-x-4">
-                <Button 
-                  variant="secondary" 
-                  onClick={handleGenerate}
-                  disabled={isGenerating}
-                  className="flex-1 relative overflow-hidden group hover:scale-105 transition-all duration-300"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-brand-purple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  {isGenerating ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                      <span className="animate-pulse">Regenerating...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="w-4 h-4 mr-2" />
-                      Regenerate Posts
-                      <span className="ml-2 text-xs opacity-70">FREE</span>
-                    </>
-                  )}
-                </Button>
-              </div>
             </>
           ) : (
-            <Card className="h-64 border-dashed border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-brand-purple/5 hover:border-primary/30 transition-all duration-300">
-              <CardContent className="h-full flex items-center justify-center">
-                <div className="text-center space-y-4 animate-fade-in">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto shadow-lg animate-pulse">
-                    <Sparkles className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-foreground font-medium">
-                      Your AI-generated posts will appear here ✨
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Fill in the form and click generate to create engaging LinkedIn posts
-                    </p>
-                    <div className="flex items-center justify-center space-x-2 mt-3">
-                      <span className="w-2 h-2 bg-primary rounded-full animate-bounce"></span>
-                      <span className="w-2 h-2 bg-brand-purple rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></span>
-                      <span className="w-2 h-2 bg-brand-green rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></span>
-                    </div>
-                  </div>
+            // Empty State - Encouraging
+            <Card className="border border-border/50 bg-background/50">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-muted/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Sparkles className="w-8 h-8 text-muted-foreground" />
                 </div>
+                <h3 className="text-lg font-medium mb-2">Ready to create?</h3>
+                <p className="text-muted-foreground text-sm">
+                  Select a hook category and enter your topic to generate an engaging LinkedIn post
+                </p>
               </CardContent>
             </Card>
           )}
