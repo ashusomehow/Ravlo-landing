@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -49,6 +50,7 @@ function applyFormatting(text: string, font: 'serif' | 'mono' | null, bold: bool
 
 const PostFormatter: React.FC = () => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const location = useLocation();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -59,12 +61,20 @@ const PostFormatter: React.FC = () => {
 
   // Load content from navigation state or localStorage
   useEffect(() => {
-    const preload = localStorage.getItem('ravlo-formatter-preload');
-    if (preload) {
-      setContent(preload.replace(/\n/g, '\n'));
-      localStorage.removeItem('ravlo-formatter-preload');
+    // Check for navigation state from SavedDrafts
+    if (location.state && location.state.content) {
+      setContent(location.state.content);
+      setTitle(location.state.title || "");
+      setEditingId(location.state.id || null);
+    } else {
+      // Check for localStorage preload (from AI Post Writer)
+      const preload = localStorage.getItem('ravlo-formatter-preload');
+      if (preload) {
+        setContent(preload.replace(/\n/g, '\n'));
+        localStorage.removeItem('ravlo-formatter-preload');
+      }
     }
-  }, []);
+  }, [location.state]);
 
 
 
@@ -137,7 +147,7 @@ const PostFormatter: React.FC = () => {
     
     switch (type) {
       case 'bold':
-        formattedContent = applyFont(content, font);
+        formattedContent = applyFont(content, 'serif'); // Use bold serif as default
         break;
       case 'italic':
         formattedContent = applyItalic(content);

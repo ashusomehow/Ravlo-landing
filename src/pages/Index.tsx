@@ -83,11 +83,11 @@ const Index = () => {
                   </span>
                   <br />
                   <span className="text-foreground">
-                    with AI-Powered Hooks
+                    with {hookStats.total} AI-Powered Hooks
                   </span>
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-lg">
-                  Master LinkedIn growth with {hookStats.total} proven hook templates, 
+                  Master LinkedIn growth with proven hook templates, 
                   AI-powered content creation, and advanced analytics to optimize your engagement.
                 </p>
               </div>
