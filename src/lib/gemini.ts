@@ -1,5 +1,5 @@
 // Gemini AI Integration for Ravlo
-const GEMINI_API_KEY = 'AIzaSyCD2Qe4czG7VVNHbr4QFKc2FN9UlzRNfU4';
+const GEMINI_API_KEY = 'AIzaSyDBXEncDzKHzgjpwXTIm6hhlBQLEjMMsNw';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 
 export interface GeneratePostRequest {
